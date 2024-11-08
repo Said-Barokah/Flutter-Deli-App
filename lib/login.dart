@@ -11,6 +11,7 @@ class _LoginState extends State<Login> {
   List<String> phoneCodes = ['+62', '+91', '+44', '+81'];
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  bool _isObscured = true;
   void _login() {
     String email = emailController.text;
     String password = passwordController.text;
@@ -140,6 +141,19 @@ class _LoginState extends State<Login> {
                           EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
                       child: TextField(
                         decoration: InputDecoration(
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              _isObscured
+                                  ? Icons.visibility_off
+                                  : Icons.visibility, // Mengubah ikon mata
+                              color: Colors.black,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _isObscured = !_isObscured; // Toggle visibility
+                              });
+                            },
+                          ),
                           enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                   color: Color.fromRGBO(74, 98, 138, 0.39))),

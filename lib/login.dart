@@ -180,7 +180,10 @@ class _LoginState extends State<Login> {
                       child: Container(
                         width: double.maxFinite,
                         child: ElevatedButton(
-                          onPressed: _login,
+                          // onPressed: _login,
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/register');
+                          },
                           child: Text('Login'),
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Color.fromRGBO(74, 98, 138, 1.0),

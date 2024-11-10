@@ -210,6 +210,12 @@ class _RegisterState extends State<Register> {
                           EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
                       child: TextField(
                         decoration: InputDecoration(
+                          hintText: 'Masukkan Kata Sandi',
+                          hintStyle: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                            color: Color.fromRGBO(74, 97, 138, 0.518),
+                          ),
                           suffixIcon: IconButton(
                             icon: Icon(
                               _isObscured
@@ -229,20 +235,45 @@ class _RegisterState extends State<Register> {
                         ),
                       )),
                   Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                      child: Align(
-                        alignment: Alignment.centerRight,
-                        child: Text(
-                          'Lupa Kata Sandi',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            color: Color.fromRGBO(74, 98, 138,
-                                1.0), // Perbaiki opacity menjadi 1.0
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(right: 2),
+                          child: Image.asset(
+                            'assets/images/check_border.png',
+                            width: 26,
                           ),
                         ),
-                      )),
+                        Expanded(
+                            flex: 1,
+                            child: Text.rich(
+                              TextSpan(
+                                  text:
+                                      'Dengan mendaftar, Anda setuju untuk mematuhi syarat dan ketentuan yang berlaku',
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      color: Color.fromRGBO(74, 98, 138, 0.7)),
+                                  children: [
+                                    TextSpan(
+                                        text: ' syarat',
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color: Color.fromRGBO(
+                                                74, 98, 138, 0.9))),
+                                    TextSpan(text: ' dan '),
+                                    TextSpan(
+                                        text: 'ketentuan ',
+                                        style: TextStyle(
+                                            fontSize: 12,
+                                            color: Color.fromRGBO(
+                                                74, 98, 138, 0.9))),
+                                    TextSpan(text: 'yang berlaku')
+                                  ]),
+                            ))
+                      ],
+                    ),
+                  ),
                   Padding(
                       padding:
                           EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -250,7 +281,7 @@ class _RegisterState extends State<Register> {
                         width: double.maxFinite,
                         child: ElevatedButton(
                           onPressed: _login,
-                          child: Text('Login'),
+                          child: Text('Daftar'),
                           style: ElevatedButton.styleFrom(
                               backgroundColor: Color.fromRGBO(74, 98, 138, 1.0),
                               foregroundColor: Colors.white,
